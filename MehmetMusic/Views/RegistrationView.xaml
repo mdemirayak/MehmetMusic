@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="MehmetMusic.Views.RegistrationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MehmetMusic.Views"
+             mc:Ignorable="d"
+             >
+    
+    <Grid Background="White">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="120" />
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Vertical">
+            <Label Content="Vorname" FontWeight="Bold" FontSize="12" />
+            <TextBox Style="{StaticResource NoBackgroundTextBox}" 
+                     Text="hallo" 
+                     HorizontalAlignment="Left"/>
+            <Label Content="Nachname" FontSize="12"
+                    FontWeight="Bold"/>
+            <TextBox Style="{StaticResource NoBackgroundTextBox}" 
+                     Text="hallo" 
+                     HorizontalAlignment="Left"/>
+            <Label Content="Email" FontWeight="Bold" FontSize="12" />
+            <TextBox Style="{StaticResource NoBackgroundTextBox}" 
+                     Text="hallo" 
+                     HorizontalAlignment="Left"/>
+            <Label Content="User-ID" FontWeight="Bold" FontSize="12" />
+            <TextBox Style="{StaticResource NoBackgroundTextBox}" 
+                     Text="hallo" 
+                     HorizontalAlignment="Left"/>
+            <Label Content="Geburtsdatum" FontWeight="Bold" FontSize="12" />
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Grid.Row="1">
+            <ComboBox  Style="{StaticResource ComboBoxRound}" 
+                       Width="100" 
+                       MaxWidth="100" 
+                       Height="30"
+                       ItemsSource="{Binding GeburtsTagList}"
+                       SelectedItem="{Binding GeburtsTag}"/>
+            
+            <ComboBox Style="{StaticResource ComboBoxRound}" 
+                      Width="100" MaxWidth="100" 
+                      Height="30"
+                      ItemsSource="{Binding GeburtsMonatList}"
+                      SelectedItem="{Binding GeburtsMonat}"/>
+            
+            <ComboBox Style="{StaticResource ComboBoxRound}"
+                      Width="100"  
+                      MaxWidth="100" 
+                      Height="30" 
+                      ItemsSource="{Binding GeburtsJahrList}"
+                      SelectedItem="{Binding GeburtsJahr}"/>
+
+        </StackPanel>
+
+        <Button Command="{Binding BackToLogin}"
+                Style="{StaticResource BaseButtonStyle}" 
+                Content="Registrierung" 
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                Grid.Row="1"
+                Width="200"
+                Height="50"/>
+
+    </Grid>
+</UserControl>
